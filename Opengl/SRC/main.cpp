@@ -2,6 +2,9 @@
 #include<gl/glew.h>
 #include<GLFW/glfw3.h>
 
+//documentation OpenGL
+//https://docs.gl/
+
 static void HandleInput(GLFWwindow* window) 
 {
 
@@ -41,7 +44,7 @@ int main()
 		std::cout << "[GLFW]: Failed to initalize"<<std::endl;
 		return 1;
 	}
-
+	
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 4);
 	glfwWindowHint(GLFW_OPENGL_ANY_PROFILE, GLFW_OPENGL_CORE_PROFILE);
