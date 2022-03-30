@@ -123,12 +123,16 @@ int main()
 	// Normalized Device Coordinates Triangle Vertex Data 
 	float vertices[] = {
 		-0.5f, -0.5f, 0.0f, // Bottom Left
-		 0.5f, -0.5f, 0.0f, // Bittom Right
-		 0.0f,  0.5f, 0.0f  // Tip
+		-0.5f,  0.5f, 0.0f,  // top left 
+		 0.5f, -0.5f, 0.0f, // Bottom Right
+		 0.5f, 0.5f, 0.0f  // top right
+		
 	};
 
 	unsigned int indices[] = {
-		0,1,2
+		0,1,2,
+		1,2,3
+
 	};
 
 	unsigned int VBO, VAO, EBO;// IDs for..
@@ -149,6 +153,7 @@ int main()
 
 	// Set AttribPointer data stride 
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+	
 	glEnableVertexAttribArray(0);
 
 	// note that this is allowed, the call to glVertexAttribPointer registered VBO as the vertex attribute's bound vertex buffer object so afterwards we can safely unbind
@@ -172,7 +177,7 @@ int main()
 		// Draw
 		glUseProgram(shaderProgramID);
 		glBindVertexArray(VAO);
-		glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, 0);
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 		
 		// Swap to backbuffer for window
 		glfwSwapBuffers(window);
