@@ -19,6 +19,7 @@ static void HandleInput(GLFWwindow* window)
 
 static void framebufferResizeCallback(GLFWwindow* window, int width, int height)
 {
+	// set the window dimensions
 	glViewport(0, 0, width, height);
 }
 // Vertex Shader Data
@@ -41,10 +42,11 @@ int main()
 	//initialize and configure GLFW
 	if (!glfwInit())
 	{
-		std::cout << "[GLFW]: Failed to initalize"<<std::endl;
+		std::cout << "[GLFW]: Failed to initialize"<<std::endl;
 		return 1;
 	}
 	
+
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 4);
 	glfwWindowHint(GLFW_OPENGL_ANY_PROFILE, GLFW_OPENGL_CORE_PROFILE);
@@ -179,7 +181,7 @@ int main()
 		glBindVertexArray(VAO);
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 		
-		// Swap to backbuffer for window
+		// Swap to back-buffer for window
 		glfwSwapBuffers(window);
 
 	}
@@ -190,7 +192,7 @@ int main()
 	glDeleteBuffers(1, &EBO);
 	glDeleteProgram(shaderProgramID);
 
-	//Destory window
+	//Destroy window
 	glfwTerminate();
 	return 0;
 
